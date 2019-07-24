@@ -1,0 +1,32 @@
+<h1>List Products</h1>
+<table class="table table-bordered table-striped table-hover table-reponsive scroll">
+    <thead>
+    	
+	  	<tr>
+		    <th>Id</th>
+		    <th>Name</th>
+		    <th>Image</th>
+            <th>Sku</th>
+		    <th>Price</th>
+		    <th>Description</th>
+            <th>Status</th>
+	    </tr>
+    </thead>
+    <?php
+    $productCollection = $block->getProductCollection();
+    foreach ($productCollection as $product) {
+    	echo "<tr style=\"border: 1px solid #dddddd; text-align: left; padding: 8px;\">";
+    	echo "<td>".$product->getId()."</td>";
+    	echo "<td>".$product->getName()."</td>";
+        echo "<td>".$product->getImage()."</td>";
+        echo "<td>".$product->getSku()."</td>";
+    	echo "<td>".$product->getPrice()."</td>";
+        echo "<td>".$product->getDescription()."</td>";
+        if( $product->getStatus() == 1){
+            echo "<td>". 'Enable'."</td>";
+        }else {
+            echo "<td>". 'Disable'."</td>";
+        }
+    }
+    ?>
+</table>
