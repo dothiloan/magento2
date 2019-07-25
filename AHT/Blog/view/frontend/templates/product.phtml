@@ -14,11 +14,12 @@
     </thead>
     <?php
     $productCollection = $block->getProductCollection();
+    
     foreach ($productCollection as $product) {
     	echo "<tr style=\"border: 1px solid #dddddd; text-align: left; padding: 8px;\">";
     	echo "<td>".$product->getId()."</td>";
-    	echo "<td>".$product->getName()."</td>";
-        echo "<td>".$product->getImage()."</td>";
+        echo "<td>".$product->getName()."</td>";
+        echo "<td><img src='" . $block->getItemImage($product->getId()) . "'/></td>";
         echo "<td>".$product->getSku()."</td>";
     	echo "<td>".$product->getPrice()."</td>";
         echo "<td>".$product->getDescription()."</td>";
@@ -27,6 +28,7 @@
         }else {
             echo "<td>". 'Disable'."</td>";
         }
+
     }
     ?>
 </table>
